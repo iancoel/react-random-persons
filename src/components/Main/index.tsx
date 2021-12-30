@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Container, UserAge, UserCard, UserName } from './styles';
 import api from '../../services';
+import { IUsers } from '../../interfaces';
 
 const Main: React.FC = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<IUsers[]>([]);
 
   useEffect(() => {
-    api.get('/users').then((response) => {
-      console.log(response.status);
-      setUsers(response.data);
-    });
+    api
+      .get('/users')
+      .then((response) => {
+        setUsers(response.data.data);
+      })
+      .catch((error) => console.log('Um erro aconteceu: ', error));
   }, []);
 
   return (
     <Container>
-      <button onClick={() => console.log(users)}>Clique-me</button>
-      <UserCard>
-        <UserName>Ian</UserName>
-        <UserAge>25 anos</UserAge>
-
-        {users?.map((user) => (
+      {users.length > 0 ? (
+        users.map((user) => (
           <UserCard>
             <UserName>{user.name}</UserName>
-            <UserAge></UserAge>
+            <UserAge>{user.age} anos</UserAge>
           </UserCard>
-        ))}
-      </UserCard>
+        ))
+      ) : (
+        <div>Nenhum usuário encontrado :c</div>
+      )}
     </Container>
   );
 };
