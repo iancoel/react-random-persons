@@ -1,5 +1,9 @@
 /* CSS Reset */
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 div,
@@ -104,6 +108,8 @@ section {
 }
 body {
   line-height: 1;
+  padding: 0 100px;
+  background-color: #eee;
 }
 ol,
 ul {
