@@ -6,7 +6,7 @@ import {
   SearchInput,
 } from './styles';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <HeaderStyles>
       <HeaderTitle>random-users</HeaderTitle>
