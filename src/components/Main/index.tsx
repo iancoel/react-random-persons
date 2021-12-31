@@ -35,8 +35,8 @@ const Main: React.FC = () => {
         name = state.allUsers[index].name;
         age = state.allUsers[index].age;
       } else {
-        name = state.filteredUsers[index].name;
-        age = state.filteredUsers[index].age;
+        name = state.filteredUsers[index]?.name;
+        age = state.filteredUsers[index]?.age;
       }
 
       return (
