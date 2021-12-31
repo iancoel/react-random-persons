@@ -54,18 +54,26 @@ const Main: React.FC = () => {
   return (
     <Container>
       {state.allUsers.length > 0 ? (
-        <FixedSizeList
-          height={500}
-          width={'100%'}
-          itemSize={100}
-          itemCount={
-            state.filteredUsers.length === 0
+        <div style={{ width: '100%', height: '100%' }}>
+          <FixedSizeList
+            height={500}
+            width={'100%'}
+            itemSize={100}
+            itemCount={
+              state.filteredUsers.length === 0
+                ? state.allUsers.length
+                : state.filteredUsers.length
+            }
+          >
+            {row}
+          </FixedSizeList>
+          <p>
+            Total de pessoas:{' '}
+            {state.filteredUsers.length === 0
               ? state.allUsers.length
-              : state.filteredUsers.length
-          }
-        >
-          {row}
-        </FixedSizeList>
+              : state.filteredUsers.length}
+          </p>
+        </div>
       ) : (
         <div>Carregando todos os nomes...</div>
       )}
