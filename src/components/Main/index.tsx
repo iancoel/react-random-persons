@@ -58,7 +58,11 @@ const Main: React.FC = () => {
           height={500}
           width={'100%'}
           itemSize={100}
-          itemCount={state.allUsers.length}
+          itemCount={
+            state.filteredUsers.length === 0
+              ? state.allUsers.length
+              : state.filteredUsers.length
+          }
         >
           {row}
         </FixedSizeList>
