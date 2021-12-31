@@ -5,13 +5,13 @@ import { IUser } from '../../interfaces';
 import { FixedSizeList } from 'react-window';
 
 const Main: React.FC = () => {
-  const [users, setUsers] = useState<IUser[]>([]);
+  const [allUsers, setAllUsers] = useState<IUser[]>([]);
 
   useEffect(() => {
     api
       .get('/users')
       .then((response) => {
-        setUsers(response.data.data);
+        setAllUsers(response.data.data);
       })
       .catch((error) => console.log('Um erro aconteceu: ', error));
   }, []);
@@ -19,7 +19,7 @@ const Main: React.FC = () => {
   //configuracao para o react-window
   const row = useCallback(
     ({ index, style }) => {
-      const { name, age } = users[index] || {};
+      const { name, age } = allUsers[index] || {};
 
       return (
         <div style={style}>
@@ -30,7 +30,7 @@ const Main: React.FC = () => {
         </div>
       );
     },
-    [users],
+    [allUsers],
   );
 
   return (
@@ -39,7 +39,7 @@ const Main: React.FC = () => {
         height={500}
         width={'100%'}
         itemSize={100}
-        itemCount={users.length}
+        itemCount={allUsers.length}
       >
         {row}
       </FixedSizeList>
