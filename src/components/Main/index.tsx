@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Container, UserAge, UserCard, UserName } from './styles';
 import api from '../../services';
 import { IUser } from '../../interfaces';
+import { FixedSizeList } from 'react-window';
 
 const Main: React.FC = () => {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -15,18 +16,33 @@ const Main: React.FC = () => {
       .catch((error) => console.log('Um erro aconteceu: ', error));
   }, []);
 
+  //configuracao para o react-window
+  const row = useCallback(
+    ({ index, style }) => {
+      const { name, age } = users[index] || {};
+
+      return (
+        <div style={style}>
+          <UserCard key={index}>
+            <UserName>{name}</UserName>
+            <UserAge>{age} anos</UserAge>
+          </UserCard>
+        </div>
+      );
+    },
+    [users],
+  );
+
   return (
     <Container>
-      {users.length > 0 ? (
-        users.map((user, index) => (
-          <UserCard key={index}>
-            <UserName>{user.name}</UserName>
-            <UserAge>{user.age} anos</UserAge>
-          </UserCard>
-        ))
-      ) : (
-        <p>Nenhum usuário encontrado :c</p>
-      )}
+      <FixedSizeList
+        height={500}
+        width={'100%'}
+        itemSize={100}
+        itemCount={users.length}
+      >
+        {row}
+      </FixedSizeList>
     </Container>
   );
 };

@@ -3,20 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: 50px 0;
   background-color: #ddd;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: center;
 
-  && div:nth-child(3n + 1) {
-    margin-left: 20px;
-  }
-
-  && div:nth-child(3n + 2) {
-    margin-right: 20px;
-    margin-left: 20px;
-  }
-
-  && div:nth-child(3n + 3) {
-    margin-right: 20px;
+  div::-webkit-scrollbar-track {
+    background: blue;
   }
 `;
 
@@ -26,7 +17,7 @@ export const UserCard = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   border-radius: 5px;
 `;
 
