@@ -39,6 +39,8 @@ const Header: React.FC = () => {
         onChange={(e) => {
           if (+e.target.value >= 0 && +e.target.value < 99) {
             setAge(+e.target.value);
+          } else {
+            setAge(0);
           }
         }}
       />
