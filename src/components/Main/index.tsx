@@ -1,5 +1,13 @@
 import React, { useCallback, useEffect } from 'react';
-import { Container, UserAge, UserCard, UserName } from './styles';
+import {
+  Container,
+  ListContainer,
+  UserAge,
+  UserCard,
+  UserName,
+  Loader,
+  TotalUsers,
+} from './styles';
 import api from '../../services';
 import { useDispatch, useSelector } from 'react-redux';
 import { addAllUsers } from '../../store/actions';
@@ -22,12 +30,6 @@ const Main: React.FC = () => {
   //configuracao para o react-window
   const row = useCallback(
     ({ index, style }) => {
-      // const { name, age } = !state.filteredUsers
-      //   ? state.allUsers[index] || {}
-      //   : state.filteredUsers[index] || {};
-
-      // QUEBROU NA HORA DE MOSTRAR O TERNARIO AQUI EM CIMA
-
       let name: string = '';
       let age: number = 0;
 
@@ -54,7 +56,7 @@ const Main: React.FC = () => {
   return (
     <Container>
       {state.allUsers.length > 0 ? (
-        <div style={{ width: '100%', height: '100%' }}>
+        <ListContainer>
           <FixedSizeList
             height={500}
             width={'100%'}
@@ -67,15 +69,15 @@ const Main: React.FC = () => {
           >
             {row}
           </FixedSizeList>
-          <p>
+          <TotalUsers>
             Total de pessoas:{' '}
             {state.filteredUsers.length === 0
               ? state.allUsers.length
               : state.filteredUsers.length}
-          </p>
-        </div>
+          </TotalUsers>
+        </ListContainer>
       ) : (
-        <div>Carregando todos os nomes...</div>
+        <Loader>Carregando todos os nomes...</Loader>
       )}
     </Container>
   );
