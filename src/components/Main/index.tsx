@@ -53,15 +53,18 @@ const Main: React.FC = () => {
 
   return (
     <Container>
-      <button onClick={() => console.log(state)}>Clique-me</button>
-      <FixedSizeList
-        height={500}
-        width={'100%'}
-        itemSize={100}
-        itemCount={state.allUsers.length}
-      >
-        {row}
-      </FixedSizeList>
+      {state.allUsers.length > 0 ? (
+        <FixedSizeList
+          height={500}
+          width={'100%'}
+          itemSize={100}
+          itemCount={state.allUsers.length}
+        >
+          {row}
+        </FixedSizeList>
+      ) : (
+        <div>Carregando...</div>
+      )}
     </Container>
   );
 };
