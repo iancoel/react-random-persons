@@ -29,9 +29,14 @@ const Header: React.FC = () => {
     <HeaderStyles>
       <HeaderTitle>random-users</HeaderTitle>
       <Input
-        placeholder="Insira idade"
+        type="number"
+        placeholder="Insira idade entre 0 e 98"
         value={age}
-        onChange={(e) => setAge(+e.target.value)}
+        onChange={(e) => {
+          if (+e.target.value >= 0 && +e.target.value < 99) {
+            setAge(+e.target.value);
+          }
+        }}
       />
       <Button onClick={handleAgeChange}>Buscar por idade</Button>
       <Input
