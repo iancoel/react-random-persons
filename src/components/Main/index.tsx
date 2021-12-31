@@ -1,10 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Container, UserAge, UserCard, UserName } from './styles';
 import api from '../../services';
+import { useDispatch } from 'react-redux';
+import { addAllUsers } from '../../store/actions';
 import { IUser } from '../../interfaces';
 import { FixedSizeList } from 'react-window';
 
 const Main: React.FC = () => {
+  const dispatch = useDispatch();
   const [allUsers, setAllUsers] = useState<IUser[]>([]);
 
   useEffect(() => {
@@ -12,6 +15,7 @@ const Main: React.FC = () => {
       .get('/users')
       .then((response) => {
         setAllUsers(response.data.data);
+        dispatch(addAllUsers(response.data.data));
       })
       .catch((error) => console.log('Um erro aconteceu: ', error));
   }, []);
