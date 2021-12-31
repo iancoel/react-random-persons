@@ -14,14 +14,18 @@ const Header: React.FC = () => {
   const [name, setName] = useState<string>('');
 
   const handleAgeChange = () => {
+    setName('');
     dispatch(filterByAge(age!));
   };
 
   const handleNameChange = () => {
+    setAge(0);
     dispatch(filterByName(name));
   };
 
   const handleRemoveFiltering = () => {
+    setAge(0);
+    setName('');
     dispatch(removeFiltering());
   };
 

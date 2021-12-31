@@ -63,7 +63,7 @@ const Main: React.FC = () => {
           {row}
         </FixedSizeList>
       ) : (
-        <div>Carregando...</div>
+        <div>Carregando todos os nomes...</div>
       )}
     </Container>
   );
