@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Container, UserAge, UserCard, UserName } from './styles';
 import api from '../../services';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,7 +17,7 @@ const Main: React.FC = () => {
         dispatch(addAllUsers(response.data.data));
       })
       .catch((error) => console.log('Um erro aconteceu: ', error));
-  }, []);
+  }, [dispatch]);
 
   //configuracao para o react-window
   const row = useCallback(
@@ -28,7 +28,16 @@ const Main: React.FC = () => {
 
       // QUEBROU NA HORA DE MOSTRAR O TERNARIO AQUI EM CIMA
 
-      const { name, age } = state.allUsers[index] || {};
+      let name: string = '';
+      let age: number = 0;
+
+      if (state.filteredUsers.length === 0) {
+        name = state.allUsers[index].name;
+        age = state.allUsers[index].age;
+      } else {
+        name = state.filteredUsers[index].name;
+        age = state.filteredUsers[index].age;
+      }
 
       return (
         <div style={style}>
