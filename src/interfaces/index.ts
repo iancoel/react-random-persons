@@ -17,3 +17,12 @@ export interface IActionAge {
   type: string;
   payload: number;
 }
+
+export interface IActionRemoveFilter {
+  type: string;
+}
+
+export interface IStoreUsers {
+  allUsers: IUser[];
+  filteredUsers: IUser[];
+}

@@ -1,15 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  filterByAge,
+  filterByName,
+  removeFiltering,
+} from '../../store/actions';
+
 import { Button, HeaderStyles, HeaderTitle, Input } from './styles';
 
 const Header: React.FC = () => {
+  const dispatch = useDispatch();
+  const [age, setAge] = useState<number>();
+  const [name, setName] = useState<string>('');
+
+  const handleAgeChange = () => {
+    dispatch(filterByAge(age!));
+  };
+
+  const handleNameChange = () => {
+    dispatch(filterByName(name));
+  };
+
+  const handleRemoveFiltering = () => {
+    dispatch(removeFiltering());
+  };
+
   return (
     <HeaderStyles>
       <HeaderTitle>random-users</HeaderTitle>
-      <Input placeholder="Insira idade" />
-      <Button>Buscar por idade</Button>
-      <Input placeholder="Insira nome" />
-      <Button>Buscar por nome</Button>
-      <Button>Mostrar todos os usuários</Button>
+      <Input
+        placeholder="Insira idade"
+        value={age}
+        onChange={(e) => setAge(+e.target.value)}
+      />
+      <Button onClick={handleAgeChange}>Buscar por idade</Button>
+      <Input
+        placeholder="Insira nome"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <Button onClick={handleNameChange}>Buscar por nome</Button>
+      <Button onClick={handleRemoveFiltering}>Mostrar todos os usuários</Button>
     </HeaderStyles>
   );
 };

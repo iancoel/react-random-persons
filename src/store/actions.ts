@@ -1,4 +1,10 @@
-import { IUser, IActionAge, IActionName, IActionUsers } from '../interfaces';
+import {
+  IUser,
+  IActionAge,
+  IActionName,
+  IActionUsers,
+  IActionRemoveFilter,
+} from '../interfaces';
 
 export const addAllUsers = (users: IUser[]): IActionUsers => {
   return {
@@ -18,5 +24,11 @@ export const filterByName = (name: string): IActionName => {
   return {
     type: 'FILTRAR_NOME',
     payload: name,
+  };
+};
+
+export const removeFiltering = (): IActionRemoveFilter => {
+  return {
+    type: 'REMOVER_FILTROS',
   };
 };
