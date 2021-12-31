@@ -14,13 +14,14 @@ export const HeaderTitle = styled.h1`
   font-size: 2rem;
 `;
 
-export const SearchInput = styled.input`
+export const Input = styled.input`
   font-size: 1rem;
   height: 3rem;
-  margin: 0 50px;
+  margin: 0 20px;
 `;
 
-export const AllUsersButton = styled.button`
+export const Button = styled.button`
   font-size: 1rem;
+  margin: 0 20px;
   height: 3rem;
 `;

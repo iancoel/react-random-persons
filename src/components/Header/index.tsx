@@ -1,17 +1,15 @@
 import React from 'react';
-import {
-  AllUsersButton,
-  HeaderStyles,
-  HeaderTitle,
-  SearchInput,
-} from './styles';
+import { Button, HeaderStyles, HeaderTitle, Input } from './styles';
 
 const Header: React.FC = () => {
   return (
     <HeaderStyles>
       <HeaderTitle>random-users</HeaderTitle>
-      <SearchInput placeholder="Insira idade" />
-      <AllUsersButton>Mostrar todos os usuários</AllUsersButton>
+      <Input placeholder="Insira idade" />
+      <Button>Buscar por idade</Button>
+      <Input placeholder="Insira nome" />
+      <Button>Buscar por nome</Button>
+      <Button>Mostrar todos os usuários</Button>
     </HeaderStyles>
   );
 };
