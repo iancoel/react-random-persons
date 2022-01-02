@@ -33,6 +33,7 @@ const Header: React.FC = () => {
     <HeaderStyles>
       <HeaderTitle>random-users</HeaderTitle>
       <Input
+        data-testid="number-input"
         type="number"
         placeholder="Insira idade entre 0 e 98"
         value={age}
@@ -44,13 +45,18 @@ const Header: React.FC = () => {
           }
         }}
       />
-      <Button onClick={handleAgeChange}>Buscar por idade</Button>
+      <Button onClick={handleAgeChange} data-testid="number-button">
+        Buscar por idade
+      </Button>
       <Input
         placeholder="Insira nome"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        data-testid="name-input"
       />
-      <Button onClick={handleNameChange}>Buscar por nome</Button>
+      <Button onClick={handleNameChange} data-testid="name-button">
+        Buscar por nome
+      </Button>
       <Button onClick={handleRemoveFiltering}>Mostrar todos os usuários</Button>
     </HeaderStyles>
   );
