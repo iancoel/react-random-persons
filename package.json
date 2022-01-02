@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/axios": "^0.14.0",
@@ -55,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
     "@types/jest": "^27.4.0",
     "@types/styled-components": "^5.1.19",
     "jest": "^27.4.5",
