@@ -15,6 +15,8 @@ Certifique-se de rodar npm install (ou yarn) antes do npm start
 - React-window
 - Styled-components
 - Typescript
+- React Testing Library
 
 ## Deploy
+
 Hospedado [aqui](https://random-persons-react.netlify.app)
