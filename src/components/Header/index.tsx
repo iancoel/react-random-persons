@@ -35,7 +35,7 @@ const Header: React.FC = () => {
       <Input
         data-testid="number-input"
         type="number"
-        placeholder="Insira idade entre 0 e 98"
+        placeholder="Idade entre 0 e 98"
         value={age}
         onChange={(e) => {
           if (+e.target.value >= 0 && +e.target.value < 99) {
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
         Buscar por idade
       </Button>
       <Input
-        placeholder="Insira nome"
+        placeholder="Nome"
         value={name}
         onChange={(e) => setName(e.target.value)}
         data-testid="name-input"
