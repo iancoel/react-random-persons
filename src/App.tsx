@@ -9,10 +9,8 @@ import store from './store/store';
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="App">
-        <Header />
-        <Main />
-      </div>
+      <Header />
+      <Main />
     </Provider>
   );
 };

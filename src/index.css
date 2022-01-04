@@ -108,8 +108,10 @@ section {
 }
 body {
   line-height: 1;
-  padding: 0 100px;
-  background-color: #eee;
+  background: url('https://images.fineartamerica.com/images-medium-large-5/textured-background-hand-painted-with-andipantz.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 ol,
 ul {

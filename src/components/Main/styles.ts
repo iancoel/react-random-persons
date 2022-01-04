@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 50px 0;
-  background-color: #ddd;
+  padding: 50px 100px 0 100px;
   display: flex;
   justify-content: center;
 
@@ -33,12 +32,11 @@ export const TotalUsers = styled.p`
 
 export const UserCard = styled.div`
   padding: 10px 20px;
-  background-color: violet;
+  background-color: mediumpurple;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-bottom: 20px; */
-  border-radius: 5px;
+  border-radius: 10px;
   font-family: sans-serif;
 `;
 
