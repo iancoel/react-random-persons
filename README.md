@@ -1,6 +1,6 @@
 # random-persons React
 
-Esta aplicação visa renderizar os dados (nome e idade apenas) de 100 mil pessoas (objetos) com a possibilidade de filtragem por nome e idade.
+Esta aplicação visa renderizar os dados (nome e idade apenas) de 100 mil pessoas (através de virtualização visando questões de performance) com a possibilidade de filtragem por nome e idade.
 
 ## Setup
 
