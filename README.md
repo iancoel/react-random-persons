@@ -1,12 +1,15 @@
 # random-persons React
 
+This app aims to render data from 100k persons granting no performance issues through virtualization
+
 Esta aplicação visa renderizar os dados (nome e idade apenas) de 100 mil pessoas (através de virtualização visando questões de performance) com a possibilidade de filtragem por nome e idade.
 
 ## Setup
 
-Certifique-se de rodar npm install (ou yarn) antes do npm start
+- `npm install`
+- `npm start`
 
-## Dependências
+## Dependencies
 
 - Axios
 - React
@@ -19,4 +22,4 @@ Certifique-se de rodar npm install (ou yarn) antes do npm start
 
 ## Deploy
 
-Hospedado [aqui](https://random-persons-react.netlify.app)
+[Here](https://random-persons-react.netlify.app)
